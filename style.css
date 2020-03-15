@@ -1,0 +1,403 @@
+body {
+    margin: 0;
+    background-color:skyblue;
+}
+
+figure {
+    margin: 0;
+}
+
+/* общие ключевые кадры для всех анимаций с облаком
+** ко всем анимациям с облаком применил общие св-ва анимации 
+*/
+@-webkit-keyframes slide_cloud {
+from {transform: translate(-160px);}
+    to {transform: translate(2000px);}
+}
+
+@-moz-keyframes slide_cloud{
+    from {transform: translate(-160px);}
+    to {transform: translate(2000px);} 
+}
+
+@-o-keyframes slide_cloud {
+    from {transform: translate(-160px);}
+    to {transform: translate(2000px);}
+}
+
+@keyframes slide_cloud {
+    from {transform: translate(-160px);}
+    to {transform: translate(2000px);}
+}
+
+
+.cloud_big {
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top:5%;
+    left: -15%;
+    background: url(./Picture/cloud.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: slide_cloud 40s linear 1s normal infinite none;
+    -webkit-animation: slide_cloud 40s linear 3s normal infinite none;
+    -moz-animation: slide_cloud 70s linear 0s normal infinite none;
+    -o-animation: slide_cloud 70s linear 0s normal infinite none;
+}  
+/* --расширенное описание свойств анимации--
+
+    animation-name: slide;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-fill-mode: none;
+ */
+
+ .cloud_small {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 60%;
+    left: -10%;
+    background: url(./Picture/cloud.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;   
+    animation: slide_cloud 40s linear 0s normal infinite none;
+    -webkit-animation: slide_cloud 40s linear 0s normal infinite none;
+    -moz-animation: slide_cloud 40s linear 0s normal infinite none;
+    -o-animation: slide_cloud 40s linear 0s normal infinite none;
+}
+
+.cloud_smallest {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top:35%;
+    left: -10%;
+    background: url(./Picture/cloud.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;   
+    animation: slide_cloud 45s linear 0s normal infinite none;
+    -webkit-animation: slide_cloud 40s linear 1s normal infinite none;
+    -moz-animation: slide_cloud 45s linear 0s normal infinite none;
+    -o-animation: slide_cloud 45s linear 0s normal infinite none;
+    
+}
+
+/* поворот правого крыла домика*/
+@keyframes rotating_home_right {
+    from {translate(80px,10px) rotate(-45deg);}
+    to {transform: translate(80px,10px) rotate(0);}
+}
+
+@-webkit-keyframes rotating_home_right {
+    from {translate(80px,10px) rotate(-45deg);}
+    to {transform: translate(80px,10px) rotate(0);}
+}
+
+@-o-keyframes rotating_home_right {
+    from {translate(80px,10px) rotate(-45deg);}
+    to {transform: translate(80px,10px) rotate(0);}
+}
+
+@-moz-keyframes rotating_home_right {
+    from {translate(80px,10px) rotate(-45deg);}
+    to {transform: translate(80px,10px) rotate(0);}
+}
+
+/* поворот левого крыла домика*/
+@keyframes rotating_home_left {
+    from {transform: translate(-80px,10px) rotate(45deg);}
+    to {transform: translate(-80px,10px) rotate(0);}
+}
+
+@-webkit-keyframes rotating_home_left {
+    from {transform: translate(-80px,10px) rotate(45deg);}
+    to {transform: translate(-80px,10px) rotate(0);}
+}
+
+@-o-keyframes rotating_home_left {
+    from {transform: translate(-80px,10px) rotate(-45deg);}
+    to {transform: translate(-80px,10px) rotate(0);}
+}
+
+@-moz-keyframes rotating_home_left {
+    from {transform: translate(-80px,10px) rotate(-45deg);}
+    to {transform: translate(-80px,10px) rotate(0);}
+}
+
+/* скольжение картинок с крыльями*/
+@-webkit-keyframes slide {
+    from {transform: translate(0);}
+    to {transform: translate(0, 60px);}
+}
+
+@-moz-keyframes slide {
+    from {transform: translate(0);}
+    to {transform: translate(0, 60px);}
+}
+
+@-o-keyframes slide {
+    from {transform: translate(0);}
+    to {transform: translate(0, 60px);}
+}
+
+@keyframes slide {
+    from {transform: translate(0);}
+    to {transform: translate(0, 60px);}
+}
+
+.icon_top {
+    position: absolute;
+    top: 5%;
+    left: 44%;
+    width: 200px;
+    height: 200px;
+    background: url(./Picture/real_estate.svg);
+    animation: slide 5s linear 0s alternate infinite none;
+    -webkit-animation: slide 5s linear 0s alternate infinite none;
+    -moz-animation: slide 5s linear 0s alternate infinite none;
+    -o-animation: slide 5s linear 0s alternate infinite none;
+}
+
+/* -- крыло с левой стороны -- */
+.icon_top::before {
+    display: inline-block;
+    position: relative;
+    content: "";
+    transform-origin: right;
+    transform: translate(-80px,10px) rotate(45deg);
+    width: 100px;
+    height: 100px;
+    background: url(./Picture/wings.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: rotating_home_left 1s linear 0s alternate infinite none;
+    -webkit-animation: rotating_home_left 1s linear 0s alternate infinite none;
+    -moz-animation: rotating_home_left 1s linear 0s alternate infinite none;
+    -o-animation:rotating_home_left 1s linear 0s alternate infinite none;
+}
+
+/* --крыло с правой стороны-- */
+.icon_top::after {
+    display: inline-block;
+    position: relative;
+    content: "";
+    transform-origin: left;
+    transform: translate(80px,10px) rotate(-45deg);
+    width: 100px;
+    height: 100px;
+    background: url(./Picture/wings_left.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: rotating_home_right 1s linear 0s alternate infinite none;
+    -webkit-animation: rotating_home_right 1s linear 0s alternate infinite none;
+    -moz-animation: rotating_home_right 1s linear 0s alternate infinite none;
+    -o-animation:rotating_home_right 1s linear 0s alternate infinite none;
+}
+
+
+/* поворот правого крыла money*/
+@keyframes rotating_money_right {
+    from {transform: translate(65px,10px) rotate(-45deg);}
+    to {transform: translate(65px,10px) rotate(0);}
+}
+
+@-webkit-keyframes rotating_money_right {
+    from {transform: translate(65px,10px) rotate(-45deg);}
+    to {transform: translate(65px,10px) rotate(0);}
+}
+
+@-o-keyframes rotating_money_right {
+    from {transform: translate(65px,10px) rotate(-45deg);}
+    to {transform: translate(65px,10px) rotate(0);}
+}
+
+@-moz-keyframes rotating_money_right {
+    from {transform: translate(65px,10px) rotate(-45deg);}
+    to {transform: translate(65px,10px) rotate(0);}
+}
+
+/* поворот левого крыла money*/
+@keyframes rotating_money_left {
+    from {transform: translate(-65px,10px) rotate(45deg));}
+    to {transform: translate(-65px,10px) rotate(0)}
+}
+
+@-webkit-keyframes rotating_money_left {
+    from {transform: translate(-65px,10px) rotate(45deg));}
+    to {transform: translate(-65px,10px) rotate(0)}
+}
+
+@-o-keyframes rotating_money_left {
+    from {transform: translate(-65px,10px) rotate(45deg));}
+    to {transform: translate(-65px,10px) rotate(0)}
+}
+
+@-moz-keyframes rotating_money_left {
+    from {transform: translate(-65px,10px) rotate(45deg));}
+    to {transform: translate(-65px,10px) rotate(0)}
+}
+
+.icon_right {
+    position: absolute;
+    top: 35%;
+    right: 15%;
+    width: 160px;
+    height: 160px;
+    background: url(./Picture/money.svg);
+    animation: slide 5s linear 0s alternate infinite none;
+    -webkit-animation: slide 5s linear 0s alternate infinite none;
+    -moz-animation: slide 5s linear 0s alternate infinite none;
+    -o-animation: slide 5s linear 0s alternate infinite none;
+
+}
+
+.icon_right::before {
+    display: inline-block;
+    position: relative;
+    content: "";
+    transform-origin: right;
+    transform: translate(-65px,10px) rotate(45deg);
+    width: 80px;
+    height: 80px;
+    background: url(./Picture/wings.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: rotating_money_left 1s linear 0s alternate infinite none;
+    -webkit-animation: rotating_money_left 1s linear 0s alternate infinite none;
+    -moz-animation: rotating_money_left 1s linear 0s alternate infinite none;
+    -o-animation:rotating_money_left 1s linear 0s alternate infinite none;
+}
+
+.icon_right::after {
+    display: inline-block;
+    position: relative;
+    content: "";
+    transform-origin: left;
+    transform: translate(65px,10px) rotate(-45deg);
+    width: 80px;
+    height: 80px;
+    background: url(./Picture/wings_left.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: rotating_money_right 1s linear 0s alternate infinite none;
+    -webkit-animation: rotating_money_right 1s linear 0s alternate infinite none;
+    -moz-animation: rotating_money_right 1s linear 0s alternate infinite none;
+    -o-animation:rotating_money_right 1s linear 0s alternate infinite none;
+}
+
+/* поворот правого крыла study*/
+@keyframes rotating_study_right {
+    from {transform: translate(55px,10px) rotate(-45deg);}
+    to {transform: translate(55px,10px) rotate(0);}
+}
+
+@-webkit-keyframes rotating_study_right {
+    from {transform: translate(55px,10px) rotate(-45deg);}
+    to {transform: translate(55px,10px) rotate(0);}
+}
+
+@-o-keyframes rotating_study_right {
+    from {transform: translate(55px,10px) rotate(-45deg);}
+    to {transform: translate(55px,10px) rotate(0);}
+}
+
+@-moz-keyframes rotating_study_right {
+    from {transform: translate(55px,10px) rotate(-45deg);}
+    to {transform: translate(55px,10px) rotate(0);}
+}
+
+/* поворот левого крыла study*/
+@keyframes rotating_study_left {    
+    from {transform: translate(-55px,10px) rotate(45deg));}
+    to {transform: translate(-55px,10px) rotate(0)}
+}
+
+@-webkit-keyframes rotating_study_left {
+    from {transform: translate(-55px,10px) rotate(45deg));}
+    to {transform: translate(-55px,10px) rotate(0)}
+}
+
+@-o-keyframes rotating_study_left {
+    from {transform: translate(-55px,10px) rotate(45deg));}
+    to {transform: translate(-55px,10px) rotate(0)}
+}
+
+@-moz-keyframes rotating_study_left {
+    from {transform: translate(-55px,10px) rotate(45deg));}
+    to {transform: translate(-55px,10px) rotate(0)}
+}
+.icon_bottom {
+    position: absolute;
+    top:60% ;
+    left: 46%;
+    width: 150px;
+    height: 150px;
+    background: url(./Picture/education.svg);
+    animation: slide 5s linear 0s alternate infinite none;
+    -webkit-animation: slide 5s linear 0s alternate infinite none;
+    -moz-animation: slide 5s linear 0s alternate infinite none;
+    -o-animation: slide 5s linear 0s alternate infinite none;
+
+}
+
+.icon_bottom::before {
+    display: inline-block;
+    position: relative;
+    content: "";
+    transform-origin: right;
+    transform: translate(-55px, 10px) rotate(45deg);
+    width: 70px;
+    height: 70px;
+    background: url(./Picture/wings.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: rotating_study_left 1s linear 0s alternate infinite none;
+    -webkit-animation: rotating_study_left 1s linear 0s alternate infinite none;
+    -moz-animation: rotating_study_left 1s linear 0s alternate infinite none;
+    -o-animation:rotating_study_left 1s linear 0s alternate infinite none;
+}
+
+.icon_bottom::after {
+    display: inline-block;
+    position: relative;
+    content: "";
+    transform-origin: left;
+    transform: translate(65px, 10px) rotate(-45deg);
+    width: 70px;
+    height: 70px;
+    background: url(./Picture/wings_left.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    animation: rotating_study_right 1s linear 0s alternate infinite none;
+    -webkit-animation: rotating_study_right 1s linear 0s alternate infinite none;
+    -moz-animation: rotating_study_right 1s linear 0s alternate infinite none;
+    -o-animation:rotating_study_right 1s linear 0s alternate infinite none;
+}
+
+.round {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+}
+
